@@ -103,8 +103,8 @@ def singleMotorConnect(event=None):
 
 def toggleMotorImage():
     global connection
-    disconnected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-disconnected.png"
-    connected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-connected-transparent.png"
+    disconnected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/motor-disconnected.png"
+    connected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/motor-connected-transparent.png"
     button = document.getElementById("motor-button")
     current_src = button.src
     button.src = connected_img if disconnected_img in current_src else disconnected_img
