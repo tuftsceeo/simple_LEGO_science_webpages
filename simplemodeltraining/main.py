@@ -85,15 +85,15 @@ def singleMotorConnect(event=None):
     document.getElementById("sensor-button-container").classList.remove("unclickable")
     
 def toggleMotorImage():
-    disconnected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-disconnected.png"
-    connected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-connected-transparent.png"
+    disconnected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/motor-disconnected.png"
+    connected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/motor-connected-transparent.png"
     button = document.getElementById("motor-image")
     current_src = button.src
     button.src = connected_img if disconnected_img in current_src else disconnected_img
 
 def toggleSensorImage():
-    disconnected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/color-sensor-disconnected.png"
-    connected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/color-sensor-connected.png"
+    disconnected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/color-sensor-disconnected.png"
+    connected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/color-sensor-connected.png"
     button = document.getElementById("sensor-image")
     current_src = button.src
     button.src = connected_img if disconnected_img in current_src else disconnected_img
