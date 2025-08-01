@@ -1,0 +1,265 @@
+.channel-check{
+    width: 20px;
+    height: 20px;
+    align-items: left;
+}
+
+.header-panel{
+  background-color: #00baae;
+  border-radius: 20px;
+  width: 480px;
+  height: 75px;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 75px;
+  
+}
+
+.panel {
+  background-color: #00baae;
+  border-radius: 20px;
+  padding: 40px;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+}
+
+.inline-box {
+  display: inline-block;
+}
+
+
+.motor-button-panel{
+    background-color: #ccc;
+    border-radius: 10px;
+    padding-top: 10px;
+    width: 120px;
+    height: 95px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.05s ease;
+}
+
+.motor-button-panel:active {
+  transform: scale(0.95);
+}
+
+.motor-turn-panel{
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 120px;
+    height: 230px;
+    box-sizing: border-box;
+}
+
+.time-box{
+    background-color: #ccc;
+    border-radius: 10px;
+    padding-top: 10px;
+    width: 150px;
+    height: 80px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    padding-top:5px;
+}
+
+.spacer{
+    height: 10px;
+}
+.small-spacer{
+    height:5px;
+}
+
+.turn-button-container{
+    background-color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 3px;
+    border-color: transparent
+}
+
+.motor-image-size{
+    width:100px;
+    height:85.5px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+.input {
+    color:#0000FF;
+    font-size: 18px;
+    border: none;
+    background-color:lightlightgray;
+}
+
+.py-editor-box, .mpy-editor-box {
+    max-height: 300px;
+    width: 95%;
+    margin-left: 10px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px 10px 10px 10px;
+    background-color: white;
+}
+
+.repl-box {
+    max-height: 300px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-radius: 0 10px 10px 10px;
+    background-color: white;
+}
+
+.parent{
+    display: grid;
+    height: 55vh;
+    width: 95%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    margin-left: 10px;
+    padding: 10px;
+    grid-template-columns: 50% 5px 50%; /* Left column, resizer, right column */
+}
+
+.child {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    margin: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.btndiv {
+    margin: 10px;
+    display: inline-block;
+    grid-row: 1;
+    height: auto;
+}
+
+.resizer {
+  background-color: whitesmoke;
+  border: 1px solid #ccc;
+  cursor: col-resize;  /* Cursor changes when hovering over the resizer */
+  width: 5px;         /* Resizer width */
+}
+
+.info {
+    width: 95%;
+    margin: 10px;
+}
+
+.hidden-block{
+    display: none
+}
+
+.table-bordered, .table-bordered tr, .table-bordered td{
+    border: 3px solid black;
+    text-align: center;
+    border-collapse: collapse;
+    padding: 15px
+} 
+
+.table-default, .table-default td, .table-default tr{
+    text-align: center;
+    border: 0px;
+    border-collapse: collapse;
+    padding: 5px
+}
+
+.play-button {
+  width: 105px;
+  height: 105px;
+  border-radius: 10px;
+  background-color: #17e004;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.05s ease;
+}
+
+.play-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 40px solid white;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+}
+
+.play-button:active {
+  transform: scale(0.95);
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.increment-button {
+    height: 26px;
+    width: 26px;
+    background-color: #00baae;
+    border-radius: 5px;
+    border: 1.5px solid #777;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 26px;
+    padding: 0;       
+    transition: transform 0.05s ease;
+}
+
+.increment-button:active {
+  transform: scale(0.95);
+}
+
+.stop-button {
+  width: 105px;
+  height: 105px;
+  border-radius: 10px;
+  background-color: #fcacac;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.05s ease;
+}
+
+.stop-icon {
+  background-color: #fff;        
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.stop-button:active {
+  transform: scale(0.95);
+}

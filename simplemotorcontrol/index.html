@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <script type="mpy-editor" src="./main.py" config="./pyscript.toml" env='me35' terminal setup></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body style="background-color: #eee">
+    <div class="header-panel">Simple Motor Control</div>
+    <div class="spacer"></div>
+    <div class = "panel">
+        <div style="display: flex; flex-direction: row; gap: 20px;">
+            <div id="motor-button-container" class = "inline-box">
+                <div class = "motor-button-panel">
+                    <img id="motor-button" src = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-disconnected.png" class = "motor-image-size">
+                </div>
+            </div>
+            <div id="run-button" class ="play-button inline-box"></div>
+            <div id="stop-button" class="stop-button indline-box">
+                <div id="stop-icon" class="stop-icon"></div>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div id="motor-control-popup" style="display:none">
+            <div class="motor-turn-panel" style="gap:10px">
+                <div id="clockwise-button" class="turn-button-container">
+                    <img style="height:90px; width:95px" src="https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-clockwise.png">
+                </div>
+                <div id="counterclockwise-button" class="turn-button-container">
+                    <img style="height:90px; width:95px" src="https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-counterclockwise.png">
+                </div>
+            </div>
+            <div style = "font-size: 40px; align-self: center; color: #555; font-weight:900px">➜</div>
+            <div class="time-box" style="align-self:center; display:flex; flex-direction:row">
+                <img style="height: 70px; width:70px; padding-right: 10px;" src="https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/clock-transparent.png">
+                <div id="time-control" style="display:flex; flex-direction:column; gap:3px">
+                    <input type="number" id="time-input" value="0" style="width: 51px; height: 35px; text-align: center; font-size: 30px; border-radius:5px">
+                    <div style="display:flex; flex-direction:row; gap:5px">
+                        <button class="increment-button" id="time-decrease">-</button> 
+                        <button class="increment-button" id="time-increase">+</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- below is for hubs.py because it sets up buttons, left over from cloning summer25-->
+    <div class="hidden-block">
+        <table>
+          <tr>
+            <td>w = </td>
+            <td id = 'name1'>Light Sensor </td>
+            <td><button id = "sync1">Connect</button></td>
+            <td><button id = "beep1">Beep</button></td>
+            <td><button id = "stop1">Stop</button></td>
+            <td><input id = "rate1" type="number" style="border: none; width: 30px;" min="0" max="20" value=10> Hz</td>
+            <td><button id = "data1">Get Data</button></td>
+            <td><select id="dd1"></select></td>
+            <td style="width: 100px; text-align: center"><label id = "value1">0</label></td>
+          </tr>
+        </table>
+    </div>
+</body>
+</html>
