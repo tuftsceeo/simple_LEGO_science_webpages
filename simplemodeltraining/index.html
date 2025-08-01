@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body style="padding: 10px; background-color: #ade3e2">
+    <script type="mpy-editor" src="./main.py" config="./pyscript.toml" env='me35' terminal setup></script>
+    <div class="header-panel">Simple Model Training</div>
+    <div id="spacer" style="height: 15px"></div>
+    <div class="control-panel" id="control-panel" style="background-color: #11a3a1; border-radius: 10px; padding: 20px; width: fit-content; height: fit-content">
+        <div class="connection-panel" style="display: flex; flex-direction: row; padding-left: 10px; padding-top: 10px;">
+            <div class="motor-button-container" id="motor-button-container">
+                <img id="motor-image" src="https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-disconnected.png" style="height:95px">
+            </div>
+            <div style = "font-size: 40px; align-self: center; color: transparent; font-weight:900px">➜</div>
+            <div class = "sensor-button-container" id="sensor-button-container">
+                <img id="sensor-image" src = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/color-sensor-disconnected.png" style="height:90px">
+            </div>
+        </div>
+        <div id="classes" class="hidden-block">
+            <div class="spacer"></div>
+            <div class="class-row" id="go-row">
+                <div class = "train-button-container" id="keep-running-button">
+                    <img src = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/speed-icon-bunny.png" style="height:75px">
+                </div>
+                <div style = "font-size: 40px; align-self: center; color: #555; font-weight:900px">➜</div>
+                <div class = "class-box" id="go-class-box">
+                    <div class = "empty-entry" id="go-entry-0"></div>
+                    <div class = "empty-entry" id="go-entry-1"></div>
+                    <div class = "empty-entry" id="go-entry-2"></div>
+                    <div class = "empty-entry" id="go-entry-3"></div>
+                    <div class = "empty-entry" id="go-entry-4"></div>
+                </div>
+            </div>
+            <div style="height: 10px"></div>
+            <div class="class-row" id="stop-row">
+                <div class = "train-button-container" id="stop-running-button">
+                    <img src = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/speed-icon-stop.png" style="height:90px">
+                </div>
+                <div style = "font-size: 40px; align-self: center; color: #555; font-weight:900px">➜</div>
+                <div class = "class-box" id="stop-class-box">
+                    <div class = "empty-entry" id="stop-entry-0"></div>
+                    <div class = "empty-entry" id="stop-entry-1"></div>
+                    <div class = "empty-entry" id="stop-entry-2"></div>
+                    <div class = "empty-entry" id="stop-entry-3"></div>
+                    <div class = "empty-entry" id="stop-entry-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 10px"></div>
+    <div id = "run-panel" class="run-panel" style="display: none; flex-direction: row; gap: 20px; background-color: #11a3a1; border-radius: 10px; padding: 20px; width: fit-content; height: fit-content;">
+        <div class = "run-button" id="run-button">
+            <div class="run-icon"></div>
+        </div>
+        <div class="stop-button" id="stop-button">
+            <div class="stop-icon"></div>
+        </div>
+    </div>
+    <!--stuff kept from summer25 so that hubs.py could assign buttons-->
+    <div class="hidden-block">
+        <table>
+          <tr>
+            <td id = 'name1'>Motor</td>
+            <td><button id = "sync1">Connect</button></td>
+            <td><button id = "beep1">Beep</button></td>
+            <td><button id = "stop1">Stop</button></td>
+            <td><input id = "rate1" type="number" style="border: none; width: 30px;" min="0" max="20" value=10> Hz</td>
+            <td><button id = "data1">Get Data</button></td>
+            <td><select id="dd1"></select></td>
+            <td style="width: 100px; text-align: center"><label id = "value1">0</label></td>
+          </tr>
+          <tr>
+            <td id = 'name2'>Light Sensor </td>
+            <td><button id = "sync2">Connect</button></td>
+            <td><button id = "beep2">Beep</button></td>
+            <td><button id = "stop2">Stop</button></td>
+            <td><input id = "rate2" type="number" style="border: none; width: 30px;" min="0" max="20" value=10> Hz</td>
+            <td><button id = "data2">Get Data</button></td>
+            <td><select id="dd2"></select></td>
+            <td style="width: 100px; text-align: center"><label id = "value1">0</label></td>
+          </tr>
+        </table>
+    </div>
+</body>
+</html>
+
