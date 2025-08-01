@@ -61,14 +61,9 @@ def decreaseTime(event=None):
 async def runButton(event=None):
     global should_run
     if run_clickable:
-        if not use_channel:
-            should_run = True
-            await runActions()
-            should_run = True
-        else:
-            should_run = True
-            await sendOnChannel()
-            should_run = True
+        should_run = True
+        await sendOnChannel()
+        should_run = True
     
 async def runActions():
     global direction
@@ -96,7 +91,7 @@ async def stopButton(event=None):
         await sendOnChannel()
         should_run = True
 
-async def changeButtons():
+def changeButtons():
     global run_clickable
     if run_clickable:
         document.getElementById("run-button").style.backgroundColor="#c0e6bc"
@@ -126,8 +121,8 @@ def singleMotorConnect(event=None):
 
 def toggleMotorImage():
     global connection
-    disconnected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-disconnected.png"
-    connected_img = "https://raw.githubusercontent.com/akaufman510/motorcontrolimages/main/motor-connected-transparent.png"
+    disconnected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/motor-disconnected.png"
+    connected_img = "https://raw.githubusercontent.com/tuftsceeo/simple_LEGO_science_webpages/main/icons/motor-connected-transparent.png"
     button = document.getElementById("motor-button")
     current_src = button.src
     button.src = connected_img if disconnected_img in current_src else disconnected_img
@@ -143,7 +138,7 @@ async def grabData():
 async def sendOnChannel():
     print("sending")
     if myChannel.connected:
-        await myChannel.post('/anna/', await grabData())
+        await myChannel.post('/motorcontrol/', await grabData())
         print("posted")
     asyncio.sleep(0.1)
 
@@ -161,10 +156,10 @@ async def executeChannel(message):
     should_run = inner["should_run"]
     direction = inner["direction"]
     desired_time = inner["time"]
-    if topic =="/anna/":
+    if topic =="/motorcontrol/":
         if connection:
             if should_run:
-                await changeButtons()
+                changeButtons()
                 await x.motor_speed(1, 50*direction)
                 await x.motor_run(1,0)
                 
@@ -178,23 +173,23 @@ async def executeChannel(message):
                     await asyncio.sleep(0.05)
                 await x.motor_speed(1,0)
                 await x.motor_run(1,0)
-                await changeButtons()
+                changeButtons()
             else:
                 await x.motor_speed(1,0)
                 await x.motor_run(1,0)
-                await changeButtons()
+                changeButtons()
         else:
             if should_run:
-                await changeButtons()
+                changeButtons()
                 start = performance.now()
                 while (performance.now() - start) < 1000*desired_time:
                     if not should_run:
                         should_run=True
                         return
                     await asyncio.sleep(0.05)
-                await changeButtons()
+                changeButtons()
             else:
-                await changeButtons()
+                changeButtons()
             
         
 myChannel.callback = executeChannel    
